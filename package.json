@@ -4,7 +4,8 @@
   "description": "dobby-fe",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config conf/webpack.prod.js",
+    "start": "webpack --config conf/webpack.dev.js && webpack-dev-server --config conf/webpack.dev.js"
   },
   "repository": {
     "type": "git",
@@ -17,11 +18,20 @@
   },
   "homepage": "https://github.com/project-dobby/dobby-fe#readme",
   "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "babel-loader": "^8.0.5",
     "clean-webpack-plugin": "^1.0.1",
+    "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1",
     "webpack-merge": "^4.2.1"
+  },
+  "dependencies": {
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3"
   }
 }
