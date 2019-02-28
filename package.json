@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/project-dobby/dobby-fe/issues"
   },
-  "homepage": "https://github.com/project-dobby/dobby-fe#readme"
+  "homepage": "https://github.com/project-dobby/dobby-fe#readme",
+  "devDependencies": {
+    "webpack": "^4.29.5"
+  }
 }
