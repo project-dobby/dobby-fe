@@ -1,0 +1,19 @@
+{
+  "name": "dobby-fe",
+  "version": "0.0.1",
+  "description": "dobby-fe",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/project-dobby/dobby-fe.git"
+  },
+  "author": "dobbies",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/project-dobby/dobby-fe/issues"
+  },
+  "homepage": "https://github.com/project-dobby/dobby-fe#readme"
+}
