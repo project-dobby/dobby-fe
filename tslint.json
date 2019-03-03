@@ -22,11 +22,7 @@
     "interface-over-type-literal": false,
     "no-conditional-assignment": true,
     "no-consecutive-blank-lines": false,
-    "no-console": false,
-    "interface-name": [
-      true,
-      "never-prefix"
-    ]
+    "no-console": false
   },
   "jsRules": {
     "max-line-length": {
