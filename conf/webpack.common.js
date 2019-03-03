@@ -1,44 +1,44 @@
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('./path');
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("./path");
 
 module.exports = {
-    target: 'web',
-    entry: './src/index.client.tsx',
+    target: "web",
+    entry: "./src/index.client.tsx",
     output: {
         path: path.dist,
-        filename: 'index.js'
+        filename: "index.js",
     },
     resolve: {
         alias: {
             src: path.src,
         },
-        extensions: ['.tsx', '.ts', '.js'],
+        extensions: [".tsx", ".ts", ".js"],
     },
     node: {
-        fs: 'empty',
-        net: 'empty'
+        fs: "empty",
+        net: "empty",
     },
     module: {
         rules: [
             {
                 test: /\.(tsx|ts)$/,
                 include: [
-                    path.src
+                    path.src,
                 ],
-                loader: 'babel-loader'
+                loader: "babel-loader",
             },
             {
                 test: /\.html$/,
-                loader: 'html-loader'
-            }
+                loader: "html-loader",
+            },
         ],
     },
     plugins: [
-        new CleanWebpackPlugin(['dist']),
+        new CleanWebpackPlugin(["dist"]),
         new HtmlWebpackPlugin({
             inject: true,
-            template: path.appHtml
-        })
+            template: path.appHtml,
+        }),
     ],
 };
