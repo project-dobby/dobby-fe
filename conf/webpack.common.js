@@ -14,10 +14,6 @@ module.exports = {
         },
         extensions: [".tsx", ".ts", ".js"],
     },
-    node: {
-        fs: "empty",
-        net: "empty",
-    },
     module: {
         rules: [
             {
