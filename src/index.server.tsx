@@ -8,10 +8,9 @@ import rootReducer from 'src/ducks/index.ts';
 
 const app = express();
 
-
 export function renderFullPage(html: any, preloadedState: any) {
     return `
-    <!DOCTYPE html>
+        <!DOCTYPE html>
         <html lang='en'>
         <head>
             <meta charset='UTF-8'>
@@ -25,8 +24,7 @@ export function renderFullPage(html: any, preloadedState: any) {
           window.__PRELOADED_STATE__ =
              ${JSON.stringify(preloadedState).replace(/</g, '\\\u003c')}
         </script>
-        </html>
-    `;
+        </html>`;
 }
 
 app.get('/', (req, res) => {
@@ -38,7 +36,6 @@ app.get('/', (req, res) => {
         </Provider>,
     );
 
-    // Grab the initial state from our Redux store
     const preloadedState = store.getState();
 
     res.writeHead(200, { 'Content-Type': 'text/html' });
