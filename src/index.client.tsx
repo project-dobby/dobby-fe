@@ -9,7 +9,6 @@ import Temp from 'src/components/Temp';
 const isClient = process.env.PROJECTION_ENV === 'client';
 const render = isClient ? ReactDOM.render : hydrate;
 
-// @eslint-ignore no-underscore-dangle
 const preloadedState = window.__PRELOADED_STATE__;
 
 delete window.__PRELOADED_STATE__;
