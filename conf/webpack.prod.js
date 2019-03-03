@@ -7,4 +7,9 @@ module.exports = merge(common, {
     performance: {
         hints: 'error',
     },
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
+    }
 });

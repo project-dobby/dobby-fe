@@ -1,5 +1,6 @@
+import {combineReducers} from "redux";
 import temp from './temp';
 
-export default {
+export default combineReducers({
     temp
-};
+});

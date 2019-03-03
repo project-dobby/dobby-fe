@@ -3,17 +3,21 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('./path');
 
 module.exports = {
-    entry: './src/index.tsx',
+    target: 'web',
+    entry: './src/index.client.tsx',
     output: {
         path: path.dist,
-        publicPath: '/dist/',
-        filename: 'build.js',
+        filename: 'index.js'
     },
     resolve: {
         alias: {
             src: path.src,
         },
         extensions: ['.tsx', '.ts', '.js'],
+    },
+    node: {
+        fs: 'empty',
+        net: 'empty'
     },
     module: {
         rules: [
@@ -33,8 +37,8 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            title: 'Dobby',
-            template: 'src/index.html'
+            inject: true,
+            template: path.appHtml
         })
     ],
 };
