@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from 'src/ducks';
 
-import Temp from 'src/components/Temp';
+import App from 'src/components/App';
 
 const isClient = process.env.PROJECTION_ENV === 'client';
 const render = isClient ? ReactDOM.render : hydrate;
@@ -17,7 +17,7 @@ function getTemplate() {
     const store = createStore(rootReducer, preloadedState);
     return (
         <Provider store={store}>
-            <Temp />
+            <App />
         </Provider>
     );
 }

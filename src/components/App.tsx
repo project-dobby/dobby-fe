@@ -9,7 +9,7 @@ type Props = {
     getTemp: typeof getTemp;
 };
 
-class Temp extends Component<Props, States> {
+class App extends Component<Props, States> {
     public componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<States>): void {
         this.props.getTemp();
     }
@@ -28,4 +28,4 @@ export default connect(
     {
         getTemp,
     },
-)(Temp);
+)(App);

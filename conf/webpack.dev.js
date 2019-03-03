@@ -7,8 +7,8 @@ module.exports = merge(common, {
     mode: "development",
     devtool: "inline-source-map",
     output: {
-    // not declaring path and publicPath,
-    // this will be under the webpack-dev-server folder.
+        // not declaring path and publicPath,
+        // this will be under the webpack-dev-server folder.
         filename: "index.js",
         chunkFilename: "[name].chunk.js",
     },

@@ -1,10 +1,10 @@
-import express from 'express';
 import React from 'react';
-import { renderToString } from 'react-dom/server';
-import { Provider } from 'react-redux';
+import express from 'express';
 import { createStore } from 'redux';
-import Temp from 'src/components/Temp';
-import rootReducer from 'src/ducks/index.ts';
+import { Provider } from 'react-redux';
+import { renderToString } from 'react-dom/server';
+import rootReducer from 'src/ducks';
+import App from 'src/components/App';
 
 const app = express();
 
@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
 
     const html = renderToString(
         <Provider store={store}>
-            <Temp />
+            <App />
         </Provider>,
     );
 
