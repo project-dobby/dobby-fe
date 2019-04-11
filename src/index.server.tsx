@@ -1,14 +1,14 @@
 import React from 'react';
 import express from 'express';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import { renderToString } from 'react-dom/server';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import {renderToString} from 'react-dom/server';
 import rootReducer from 'src/ducks';
 import App from 'src/components/App';
 
 const app = express();
 
-export function renderFullPage(html: any, preloadedState: any) {
+export function renderFullPage(html: string, preloadedState: Store): string {
     return `
         <!DOCTYPE html>
         <html lang='en'>
@@ -27,18 +27,18 @@ export function renderFullPage(html: any, preloadedState: any) {
         </html>`;
 }
 
-app.get('/', (req, res) => {
+app.get('/', (req, res): void => {
     const store = createStore(rootReducer);
 
     const html = renderToString(
         <Provider store={store}>
-            <App />
+            <App/>
         </Provider>,
     );
 
     const preloadedState = store.getState();
 
-    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.writeHead(200, {'Content-Type': 'text/html'});
     res.end(renderFullPage(html, preloadedState));
 });
 

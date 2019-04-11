@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { State as TempState, getTemp } from 'src/ducks/temp';
+import React, {Component, ReactElement} from 'react';
+import {connect} from 'react-redux';
+import {State as TempState, getTemp} from 'src/ducks/temp';
 
-type States = {};
+type States = {}
 
 type Props = {
     temp: TempState;
     getTemp: typeof getTemp;
-};
+}
 
 class App extends Component<Props, States> {
-    public componentDidUpdate(prevProps: Readonly<Props>, prevState: Readonly<States>): void {
+    public componentDidUpdate(): void {
         this.props.getTemp();
     }
 
-    public render() {
-        const { temp } = this.props;
+    public render(): ReactElement {
+        const {temp} = this.props;
 
         return <div>{temp.title}</div>;
     }
 }
 
 export default connect(
-    (store: Store) => ({
+    (store: Store): Store => ({
         temp: store.temp,
     }),
     {

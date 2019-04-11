@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM, { hydrate } from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import React, {ReactElement} from 'react';
+import ReactDOM, {hydrate} from 'react-dom';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
 import rootReducer from 'src/ducks';
 
 import App from 'src/components/App';
@@ -13,11 +13,11 @@ const preloadedState = window.__PRELOADED_STATE__;
 
 delete window.__PRELOADED_STATE__;
 
-function getTemplate() {
+function getTemplate(): ReactElement {
     const store = createStore(rootReducer, preloadedState);
     return (
         <Provider store={store}>
-            <App />
+            <App/>
         </Provider>
     );
 }

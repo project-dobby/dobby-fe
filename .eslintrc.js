@@ -1,12 +1,30 @@
-module.exports =  {
-    parser:  '@typescript-eslint/parser',
-    extends:  [
+module.exports = {
+    parser: '@typescript-eslint/parser',
+    extends: [
+        'eslint:recommended',
+        'plugin:react/recommended',
         'plugin:@typescript-eslint/recommended',
     ],
-    parserOptions:  {
-        ecmaVersion:  2018,
-        sourceType:  'module',
+    plugins: [
+        'react'
+    ],
+    parserOptions: {
+        ecmaVersion: 2018,
+        sourceType: 'module',
     },
-    rules:  {
+    globals: {
+        window: true,
+        process: true,
+        document: true,
+        console: true,
     },
+    rules: {
+        '@typescript-eslint/prefer-interface': 'off',
+        'no-console' : 'warn'
+    },
+    settings: {
+        react: {
+            version: 'detect'
+        },
+    }
 };
