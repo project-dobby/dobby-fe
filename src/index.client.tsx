@@ -14,7 +14,13 @@ const preloadedState = window.__PRELOADED_STATE__;
 delete window.__PRELOADED_STATE__;
 
 function getTemplate(): ReactElement {
-    const store = createStore(rootReducer, preloadedState);
+
+    const store = createStore(
+        rootReducer,
+        preloadedState,
+        // @ts-ignore
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    );
     return (
         <Provider store={store}>
             <App/>
