@@ -19,8 +19,9 @@ module.exports = {
         console: true,
     },
     rules: {
+        '@typescript-eslint/explicit-member-accessibility': 'off',
         '@typescript-eslint/prefer-interface': 'off',
-        'no-console' : 'warn'
+        'no-console': 'warn'
     },
     settings: {
         react: {
