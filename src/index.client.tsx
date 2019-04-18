@@ -1,7 +1,7 @@
 import React, {ReactElement} from 'react';
 import ReactDOM, {hydrate} from 'react-dom';
 import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk'
 import rootReducer from 'src/ducks';
 
@@ -19,9 +19,11 @@ function getTemplate(): ReactElement {
     const store = createStore(
         rootReducer,
         preloadedState,
-        applyMiddleware(thunk),
-        // @ts-ignore
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+        compose(
+            applyMiddleware(thunk),
+            // @ts-ignore
+            window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+        )
     );
     return (
         <Provider store={store}>
