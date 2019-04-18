@@ -3,7 +3,7 @@ const path = require("./path");
 
 module.exports = {
     target: "web",
-    entry: "./src/index.client.tsx",
+    entry: [ "@babel/polyfill", "./src/index.client.tsx"],
     output: {
         path: path.dist,
         filename: "index.js",
