@@ -1,3 +1,6 @@
+import {Dispatch} from 'redux';
+import tempService from 'src/service/temp';
+
 export type State = {
     title: string;
 };
@@ -11,19 +14,30 @@ enum ActionType {
     SET_TEMP = '@temp/SET_TEMP'
 }
 
-export const getTemp = () => ({
-    type: ActionType.GET_TEMP,
-    payload: {
-        title: 'temp!',
-    },
-});
+export const getTemp = () => (dispatch: Dispatch) =>
+    tempService
+        .getTempTitle()
+        .then(({data}) => {
+            dispatch({
+                type: ActionType.GET_TEMP,
+                payload: {
+                    title: data.title
+                },
+            })
+        });
 
-export const setTemp = (title: string) => ({
-    type: ActionType.SET_TEMP,
-    payload: {
-        title
-    },
-});
+export const setTemp = (title: string) => (dispatch: Dispatch) =>
+    tempService
+        .setTempTitle(title)
+        .then(({data}) => {
+            dispatch({
+                type: ActionType.SET_TEMP,
+                payload: {
+                    title: data.title
+                },
+            });
+        });
+
 
 export default function (state: State = initialState, action: Action) {
     switch (action.type) {
