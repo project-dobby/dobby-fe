@@ -1,6 +1,8 @@
 import React, {Component, ReactElement} from 'react';
 import {connect} from 'react-redux';
+import classnames from 'classnames';
 import {State as TempState, getTemp, setTemp} from 'src/ducks/temp';
+import style from 'src/style/style.scss';
 
 type States = {}
 
@@ -23,7 +25,7 @@ class App extends Component<Props, States> {
         const {temp} = this.props;
 
         return <>
-            <h1>{temp.title}</h1>
+            <h1 className={classnames(style.title, style.title__red)}>{temp.title}</h1>
             <button onClick={this.handleClick}>change title</button>
         </>;
     }

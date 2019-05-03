@@ -1,5 +1,9 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("./path");
+const styleLoader = require('./styleLoader');
+
+const mode = process.env.NODE_ENV || 'dev';
+const isDev = mode === 'dev';
 
 module.exports = {
     target: "web",
@@ -16,6 +20,7 @@ module.exports = {
     },
     module: {
         rules: [
+            ...styleLoader(isDev),
             {
                 test: /\.(tsx|ts)$/,
                 include: [
